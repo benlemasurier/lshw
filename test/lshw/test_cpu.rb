@@ -13,25 +13,25 @@ class TestCPU < Minitest::Test
     end
   end
 
-  def test_cpus_have_product
+  def test_product
     @systems.each do |s|
       s.cpus.each { |cpu| refute_empty cpu.product }
     end
   end
 
-  def test_cpus_have_vendor
+  def test_vendor
     @systems.each do |s|
       s.cpus.each { |cpu| refute_empty cpu.vendor }
     end
   end
 
-  def test_cpus_have_flags
+  def test_flags
     @systems.each do |s|
       s.cpus.each { |cpu| assert_operator cpu.flags.length, :>, 0 }
     end
   end
 
-  def test_cpus_have_bits
+  def test_bits
     @systems.each do |s|
       s.cpus.each do |cpu|
         refute_nil cpu.bits

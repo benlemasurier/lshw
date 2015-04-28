@@ -20,21 +20,40 @@ Or install it yourself as:
 
     $ gem install lshw
 
-## Usage
-
+## Example
 
 ```ruby
+require 'lshw'
+
 f = File.open('lshw-output.xml')
-hw = Lshw::XML(f)
+lshw = Lshw::XML(f)
 f.close
 
-hw.cpus.length
+# view system disks
+lshw.disks.legnth
+=> 1
+lshw.disks.first.vendor
+=> "DELL"
+
+lshw.disks.first.serial
+=> "0092ba6d94a166641b00f667d320b782"
+
+# cpu information
+lshw.cpus.length
 => 2
 
-hw.cpus.first.bits
+lshw.cpus.first.bits
 => 64
 
-hw.memory[:size]
+# ram
+lshw.memory.size
 => 137438953472
 
+lshw.memory.banks.first.size
+=> 17179869184
+
+lshw.memory.banks.first.description
+=> "DIMM DDR3 Synchronous 1866 MHz (0.5 ns)"
+
 ```
+

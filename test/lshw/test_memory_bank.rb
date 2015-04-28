@@ -13,36 +13,36 @@ class TestMemoryBank < Minitest::Test
     end
   end
 
-  def test_memory_banks_have_id
+  def test_id
     @systems.each do |s|
-      s.memory[:banks].each { |b| refute_nil b.id }
+      s.memory.banks.each { |b| refute_nil b.id }
     end
   end
 
-  def test_memory_banks_have_size
+  def test_size
     @systems.each do |s|
-      s.memory[:banks].each do |b|
+      s.memory.banks.each do |b|
         refute_nil b.size
         assert_kind_of Integer, b.size
       end
     end
   end
 
-  def test_memory_banks_have_product
+  def test_product
     @systems.each do |s|
-      s.memory[:banks].each { |b| refute_nil b.product }
+      s.memory.banks.each { |b| refute_nil b.product }
     end
   end
 
-  def test_memory_banks_have_description
+  def test_description
     @systems.each do |s|
-      s.memory[:banks].each { |b| refute_nil b.description }
+      s.memory.banks.each { |b| refute_nil b.description }
     end
   end
 
-  def test_memory_banks_have_slot
+  def test_slot
     @systems.each do |s|
-      s.memory[:banks].each { |b| refute_nil b.slot }
+      s.memory.banks.each { |b| refute_nil b.slot }
     end
   end
 end

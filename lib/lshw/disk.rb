@@ -16,8 +16,12 @@ module Lshw
       @node.search('./serial').text
     end
 
-    def bytes
+    def size
       @node.search("./size[@units='bytes']").text.to_i
+    end
+
+    def vendor
+      @node.search('./vendor').text
     end
   end
 end

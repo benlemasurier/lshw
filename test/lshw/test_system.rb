@@ -17,39 +17,30 @@ class TestSystem < Minitest::Test
     @systems.each { |s| assert_instance_of ::Lshw::System, s }
   end
 
-  def test_cpus_not_empty
+  def test_cpus
     @systems.each { |s| refute_empty s.cpus }
   end
 
-  def test_product_exists
+  def test_product
     @systems.each { |s| refute_nil s.product }
   end
 
-  def test_description_exists
-    @systems.each { |s| refute_nil s.description }
+  def test_description
+    @systems.each do |s|
+      refute_nil s.description
+      assert_kind_of String, s.description
+    end
   end
 
-  def test_disks_not_empty
+  def test_disks
     @systems.each { |s| refute_empty s.disks }
   end
 
-  def test_memory_exists
+  def test_memory
     @systems.each { |s| refute_nil s.memory }
   end
 
-  def test_memory_has_size
-    @systems.each { |s| refute_nil s.memory[:size] }
-  end
-
-  def test_memory_has_banks
-    @systems.each { |s| refute_nil s.memory[:banks] }
-  end
-
-  def test_memory_size_is_integer
-    @systems.each { |s| assert_kind_of Integer, s.memory[:size] }
-  end
-
-  def test_network_interfaces_exist
+  def test_network_interfaces
     @systems.each { |s| refute_empty s.network_interfaces }
   end
 end

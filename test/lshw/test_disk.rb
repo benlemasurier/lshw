@@ -13,30 +13,49 @@ class TestDisk < Minitest::Test
     end
   end
 
-  def test_disks_have_size
+  def test_size
     @systems.each do |s|
       s.disks.each do |disk|
-        assert_kind_of Integer, disk.bytes
-        assert_operator disk.bytes, :>, 0
+        refute_nil disk.size
+        assert_kind_of Integer, disk.size
+        assert_operator disk.size, :>, 0
       end
     end
   end
 
-  def test_disks_have_description
+  def test_description
     @systems.each do |s|
-      s.disks.each { |d| refute_nil d.description }
+      s.disks.each do |d|
+        refute_nil d.description
+        assert_kind_of String, d.description
+      end
     end
   end
 
-  def test_disks_have_product
+  def test_product
     @systems.each do |s|
-      s.disks.each { |d| refute_nil d.product }
+      s.disks.each do |d|
+        refute_nil d.product
+        assert_kind_of String, d.product
+      end
     end
   end
 
-  def test_disks_have_serial
+  def test_serial
     @systems.each do |s|
-      s.disks.each { |d| refute_nil d.serial }
+      s.disks.each do |d|
+        refute_nil d.serial
+        assert_kind_of String, d.serial
+      end
+    end
+  end
+
+  def test_vendor
+    @systems.each do |s|
+      s.disks.each do |d|
+        refute_nil d.vendor
+        assert_kind_of String, d.vendor
+      end
     end
   end
 end

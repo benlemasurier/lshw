@@ -26,15 +26,7 @@ module Lshw
     end
 
     def memory
-      mem = @hw.search(MEMORY_PATH)
-      banks = mem.search('./node[class="memory"]').collect do |b|
-        ::Lshw::MemoryBank.new b
-      end
-
-      {
-        size: mem.search('./size').text.to_i,
-        banks: banks
-      }
+      ::Lshw::Memory.new @hw.search(MEMORY_PATH)
     end
 
     def network_interfaces

@@ -13,25 +13,25 @@ class TestNetworkInterface < Minitest::Test
     end
   end
 
-  def test_network_interfaces_have_description
+  def test_description
     @systems.each do |s|
       s.network_interfaces.each { |i| refute_empty i.description }
     end
   end
 
-  def test_network_interfaces_have_product
+  def test_product
     @systems.each do |s|
       s.network_interfaces.each { |i| refute_empty i.product }
     end
   end
 
-  def test_network_interfaces_have_mac_address
+  def test_mac
     @systems.each do |s|
       s.network_interfaces.each { |i| refute_empty i.mac }
     end
   end
 
-  def test_network_interfaces_have_speed
+  def test_speed
     @systems.each do |s|
       s.network_interfaces.each do |i|
         assert_operator i.speed, :>, 0
