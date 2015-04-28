@@ -1,6 +1,7 @@
 # Lshw
 
 [![Build Status](https://travis-ci.org/benlemasurier/lshw.svg)](https://travis-ci.org/benlemasurier/lshw)
+[![Gem Version](https://badge.fury.io/rb/lshw.svg)](http://badge.fury.io/rb/lshw)
 
 A ruby gem for easy access to `lshw -xml` output.
 
