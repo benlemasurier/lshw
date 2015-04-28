@@ -6,3 +6,5 @@ Rake::TestTask.new do |t|
   t.libs << %w(lib)
   t.test_files = FileList['test/**/test_*.rb']
 end
+
+task :default => :test
