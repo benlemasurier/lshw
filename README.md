@@ -2,9 +2,7 @@
 
 [![Build Status](https://travis-ci.org/benlemasurier/lshw.svg)](https://travis-ci.org/benlemasurier/lshw)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/lshw`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A ruby gem for easy access to `lshw -xml` output.
 
 ## Installation
 
@@ -24,7 +22,22 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+
+```ruby
+f = File.open('lshw-output.xml')
+hw = Lshw::XML(f)
+f.close
+
+hw.cpus.length
+=> 2
+
+hw.cpus.first.bits
+=> 64
+
+hw.memory[:size]
+=> 137438953472
+
+```
 
 ## Development
 
