@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['ben.lemasurier@gmail.com']
 
   spec.summary       = 'An `lshw` parsing rubygem'
-  spec.description   = 'Parses `lshw` output for easy integration'
+  spec.description   = 'A ruby gem for easy access to `lshw -xml` output.'
   spec.homepage      = 'https://github.com/benlemasurier/lshw'
   spec.license       = 'MIT'
 

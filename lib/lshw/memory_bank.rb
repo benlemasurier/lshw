@@ -5,7 +5,7 @@ module Lshw
     end
 
     def id
-      @node.attr('id').split(':').last
+      @node.search('./physid').text.to_i
     end
 
     def size
