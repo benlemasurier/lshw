@@ -6,6 +6,7 @@ module Lshw
     MEMORY_PATH = "//node[@id='memory']"
     NETWORK_PATH = "//node[@class='network' and @handle!='']"
     PRODUCT_PATH = '/list/node/product'
+    SERIAL_PATH = '/list/node/serial'
 
     @hw = nil
 
@@ -35,6 +36,10 @@ module Lshw
 
     def product
       @hw.search(PRODUCT_PATH).text
+    end
+
+    def serial
+        @hw.search(SERIAL_PATH).text
     end
   end
 end
