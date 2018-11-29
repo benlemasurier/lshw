@@ -28,6 +28,7 @@ module Lshw
       @hw.search(DISKS_PATH).collect { |disk| ::Lshw::Disk.new disk }
     end
 
+    # depreciated in this version
     def memory
       ::Lshw::Memory.new @hw.search(MEMORY_PATH)
     end
@@ -40,6 +41,7 @@ module Lshw
       @hw.search(ALL_NETWORKS_PATH).collect { |i| ::Lshw::NetworkInterface.new i }
     end
 
+    # depreciated in this version
     def network_interfaces
       @hw.search(NETWORK_PATH).collect { |i| ::Lshw::NetworkInterface.new i }
     end
