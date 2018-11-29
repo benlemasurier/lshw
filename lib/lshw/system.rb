@@ -34,7 +34,7 @@ module Lshw
     end
 
     def memory_nodes
-      @hw.search(ALL_MEMORY_PATH).collect { |memory| ::Lshw::Memory.new memory }
+      @hw.search(MEMORY_NODES_PATH).collect { |memory| ::Lshw::Memory.new memory }
     end
 
     def all_network_interfaces
