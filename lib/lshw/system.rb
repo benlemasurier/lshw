@@ -1,9 +1,11 @@
 module Lshw
   class System
+    ALL_NETWORKS_PATH = "//node[@class='network']"
     CPU_PATH = "//node[@class='processor']"
     DESCRIPTION_PATH = '/list/node/description'
     DISKS_PATH = "//node[@id='disk']"
     MEMORY_PATH = "//node[@id='memory']"
+    MEMORY_NODES_PATH = "//node[@class='memory']"
     NETWORK_PATH = "//node[@class='network' and @handle!='']"
     PRODUCT_PATH = '/list/node/product'
     SERIAL_PATH = '/list/node/serial'
@@ -28,6 +30,14 @@ module Lshw
 
     def memory
       ::Lshw::Memory.new @hw.search(MEMORY_PATH)
+    end
+
+    def memory_nodes
+      @hw.search(ALL_MEMORY_PATH).collect { |memory| ::Lshw::Memory.new memory }
+    end
+
+    def all_network_interfaces
+      @hw.search(ALL_NETWORKS_PATH).collect { |i| ::Lshw::NetworkInterface.new i }
     end
 
     def network_interfaces

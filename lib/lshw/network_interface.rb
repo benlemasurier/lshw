@@ -8,6 +8,10 @@ module Lshw
       @node.search('./description').text
     end
 
+    def logical_name
+      @node.search('./logicalname').text
+    end
+
     def mac
       @node.search('./serial').text
     end
