@@ -4,6 +4,7 @@ module Lshw
     CPU_PATH = "//node[@class='processor']"
     DESCRIPTION_PATH = '/list/node/description'
     DISKS_PATH = "//node[@id='disk']"
+    FIRMWARE_PATH = "//node[@id='firmware']"
     MEMORY_PATH = "//node[@id='memory']"
     MEMORY_NODES_PATH = "//node[@class='memory']"
     NETWORK_PATH = "//node[@class='network' and @handle!='']"
@@ -26,6 +27,10 @@ module Lshw
 
     def disks
       @hw.search(DISKS_PATH).collect { |disk| ::Lshw::Disk.new disk }
+    end
+
+    def firmware
+      @hw.search(FIRMWARE_PATH).collect { |firm| ::Lshw::Firmware.new firm }
     end
 
     # depreciated in this version
